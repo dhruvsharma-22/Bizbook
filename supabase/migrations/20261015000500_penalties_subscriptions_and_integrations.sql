@@ -1,0 +1,4 @@
+-- Intentionally a no-op migration retained in the historical sequence.
+-- Subscription/provider schema is introduced by 20261015000700_platform_admin_and_central_providers.sql
+-- after its platform-role and Vault security model. No penalty ledger is added because no accounting
+-- policy for calculation, waiver, refund, or reversal has been approved.

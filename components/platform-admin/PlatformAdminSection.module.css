@@ -1,0 +1,70 @@
+.operationsOverview :global(#system-health),
+.operationsOverview :global(#institute-directory),
+.operationsOverview :global(#subscription-plans),
+.operationsOverview :global(#subscription-assignment),
+.operationsOverview :global(#platform-access),
+.operationsOverview :global(#platform-audit) { display: none !important; }
+
+.operationsHealth :global(#platform-operations-overview),
+.operationsHealth :global(#institute-directory),
+.operationsHealth :global(#subscription-plans),
+.operationsHealth :global(#subscription-assignment),
+.operationsHealth :global(#platform-access),
+.operationsHealth :global(#platform-audit) { display: none !important; }
+
+.operationsInstitutes :global(#platform-operations-overview),
+.operationsInstitutes :global(#system-health),
+.operationsInstitutes :global(#subscription-plans),
+.operationsInstitutes :global(#subscription-assignment),
+.operationsInstitutes :global(#platform-access),
+.operationsInstitutes :global(#platform-audit) { display: none !important; }
+
+.operationsSubscriptions :global(#platform-operations-overview),
+.operationsSubscriptions :global(#system-health),
+.operationsSubscriptions :global(#institute-directory),
+.operationsSubscriptions :global(#subscription-plans),
+.operationsSubscriptions :global(#platform-access),
+.operationsSubscriptions :global(#platform-audit) { display: none !important; }
+
+.operationsAccess :global(#platform-operations-overview),
+.operationsAccess :global(#system-health),
+.operationsAccess :global(#institute-directory),
+.operationsAccess :global(#subscription-plans),
+.operationsAccess :global(#subscription-assignment),
+.operationsAccess :global(#platform-audit) { display: none !important; }
+
+.operationsAudit :global(#platform-operations-overview),
+.operationsAudit :global(#system-health),
+.operationsAudit :global(#institute-directory),
+.operationsAudit :global(#subscription-plans),
+.operationsAudit :global(#subscription-assignment),
+.operationsAudit :global(#platform-access) { display: none !important; }
+
+.providerOverview :global(#payment-providers),
+.providerOverview :global(#messaging-providers),
+.providerOverview :global(#security-posture) { display: none !important; }
+
+.paymentProviders :global(#platform-overview),
+.paymentProviders :global(#messaging-providers),
+.paymentProviders :global(#security-posture) { display: none !important; }
+
+.messagingProviders :global(#platform-overview),
+.messagingProviders :global(#payment-providers),
+.messagingProviders :global(#security-posture) { display: none !important; }
+
+.security :global(#platform-overview),
+.security :global(#payment-providers),
+.security :global(#messaging-providers) { display: none !important; }
+
+.pageHero::after {
+  position: absolute;
+  right: -3rem;
+  top: -5rem;
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 9999px;
+  box-shadow: 0 0 0 24px rgb(255 255 255 / 6%), 0 0 0 52px rgb(255 255 255 / 5%);
+  content: "";
+  pointer-events: none;
+}

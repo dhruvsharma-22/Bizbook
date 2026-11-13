@@ -1,0 +1,580 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0.982 0.004 258);
+  --foreground: oklch(0.22 0.025 263);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.025 263);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.025 263);
+  /* BizBook keeps violet as its brand accent and uses cool neutrals for surfaces. */
+  --primary: oklch(0.432 0.232 292.759);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.958 0.008 258);
+  --secondary-foreground: oklch(0.38 0.189 293.745);
+  --muted: oklch(0.958 0.008 258);
+  --muted-foreground: oklch(0.51 0.025 263);
+  --accent: oklch(0.948 0.014 276);
+  --accent-foreground: oklch(0.38 0.189 293.745);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0.012 258);
+  --input: oklch(0.89 0.015 258);
+  --ring: oklch(0.541 0.247 293.009);
+  --chart-1: oklch(0.49 0.19 275);
+  --chart-2: oklch(0.62 0.14 220);
+  --chart-3: oklch(0.67 0.15 155);
+  --chart-4: oklch(0.73 0.15 75);
+  --chart-5: oklch(0.62 0.19 25);
+  --radius: 0.75rem;
+  --bb-canvas: #f4f6fa;
+  --bb-surface: #ffffff;
+  --bb-ink: #172033;
+  --bb-muted: #64748b;
+  --bb-border: #e2e8f0;
+  --bb-brand: #5b21b6;
+  --bb-brand-strong: #4c1d95;
+  --bb-sidebar: #191a1f;
+  --bb-shadow-card: 0 8px 24px -20px rgb(15 23 42 / 32%);
+  --sidebar: oklch(0.16 0.01 260);
+  --sidebar-foreground: oklch(0.96 0.005 258);
+  --sidebar-primary: oklch(0.49 0.19 275);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.24 0.01 260);
+  --sidebar-accent-foreground: oklch(0.96 0.005 258);
+  --sidebar-border: oklch(0.29 0.01 260);
+  --sidebar-ring: oklch(0.541 0.247 293.009);
+}
+
+.dark {
+  --background: oklch(0.16 0.02 293);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.03 293);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.03 293);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.606 0.25 292.717);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.27 0.045 293);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.27 0.045 293);
+  --muted-foreground: oklch(0.708 0.055 293);
+  --accent: oklch(0.3 0.06 293);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.606 0.25 292.717);
+  --chart-1: oklch(0.606 0.25 292.717);
+  --chart-2: oklch(0.702 0.183 293.541);
+  --chart-3: oklch(0.811 0.111 293.571);
+  --chart-4: oklch(0.894 0.057 293.283);
+  --chart-5: oklch(0.432 0.232 292.759);
+  --sidebar: oklch(0.21 0.03 293);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.3 0.06 293);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.606 0.25 292.717);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+.bizbook-application {
+  min-width: 320px;
+  min-height: 100svh;
+  color: var(--bb-ink);
+}
+
+.bizbook-application main {
+  min-width: 0;
+}
+
+.bizbook-application :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+.bizbook-application :is(table, [data-slot="table"]) {
+  font-variant-numeric: tabular-nums;
+}
+
+.bizbook-application main :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea) {
+  max-width: 100%;
+}
+
+.bizbook-application main :is(input, select, textarea):focus-visible {
+  border-color: var(--bb-brand);
+  outline: 2px solid rgb(91 33 182 / 20%);
+  outline-offset: 1px;
+}
+
+.bizbook-application :is(a, button, [role="button"]):focus-visible {
+  outline: 2px solid var(--bb-brand);
+  outline-offset: 2px;
+}
+
+.bizbook-application main :is(input, select, textarea)[aria-invalid="true"]:focus-visible {
+  border-color: #b91c1c;
+  outline-color: rgb(185 28 28 / 20%);
+}
+
+.bizbook-workspace-shell {
+  min-width: 0;
+  color: var(--bb-ink);
+  background: var(--bb-canvas);
+}
+
+.bizbook-workspace-shell main {
+  min-width: 0;
+  background-color: var(--bb-canvas);
+}
+
+.bizbook-workspace-shell main.bizbook-dashboard-canvas {
+  background:
+    radial-gradient(ellipse at 8% 0%, rgb(124 58 237 / 12%), transparent 36rem),
+    radial-gradient(ellipse at 92% 18%, rgb(20 159 143 / 7%), transparent 34rem),
+    linear-gradient(180deg, #f7f4ff 0%, #f6f7fb 42%, #eef2f8 100%);
+}
+
+.bizbook-auth-shell {
+  background: linear-gradient(145deg, #f8f9fc 0%, #f1f3f8 100%);
+}
+
+.bizbook-auth-card {
+  border: 1px solid rgb(226 221 238 / 82%);
+  box-shadow: 0 30px 80px -48px rgb(44 21 76 / 46%);
+}
+
+  .bizbook-sidebar {
+    color: #fff;
+    background: var(--bb-sidebar);
+    border-right: 1px solid rgb(255 255 255 / 8%);
+    box-shadow: 16px 0 36px -28px rgb(0 0 0 / 72%);
+  }
+
+  .bizbook-sidebar-brand {
+    border-bottom: 1px solid rgb(255 255 255 / 9%);
+  }
+
+  .bizbook-sidebar-mark,
+  .bizbook-scope-mark {
+    background: var(--bb-brand);
+    box-shadow: 0 6px 18px -12px rgb(91 33 182 / 72%);
+  }
+
+  .bizbook-sidebar-muted {
+    color: rgb(237 233 254 / 68%);
+  }
+
+  .bizbook-sidebar-label {
+    color: rgb(221 214 254 / 54%);
+  }
+
+  .bizbook-sidebar-nav {
+    scrollbar-color: rgb(221 214 254 / 22%) transparent;
+    scrollbar-width: thin;
+  }
+
+  .bizbook-nav-link {
+    color: rgb(245 243 255 / 78%);
+  }
+
+  .bizbook-nav-link:hover,
+  .bizbook-nav-section-active {
+    color: #fff;
+    background: rgb(255 255 255 / 9%);
+  }
+
+  .bizbook-admin-nav-link {
+    color: rgb(245 243 255 / 78%);
+  }
+
+  .bizbook-admin-nav-link svg {
+    color: inherit;
+  }
+
+  .bizbook-admin-nav-link:hover {
+    color: #fff;
+    background: rgb(255 255 255 / 9%);
+  }
+
+  .bizbook-admin-nav-link:hover svg {
+    color: inherit;
+  }
+
+  .bizbook-nav-active {
+    color: #fff;
+    background: #6231b4;
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 8%);
+    font-weight: 700;
+  }
+
+  .bizbook-nav-active svg {
+    color: #fff;
+  }
+
+  .bizbook-nav-chevron {
+    color: rgb(221 214 254 / 74%);
+  }
+
+  .bizbook-sidebar-subnav {
+    border-color: rgb(221 214 254 / 24%);
+  }
+
+  .bizbook-subnav-link {
+    color: rgb(237 233 254 / 74%);
+  }
+
+  .bizbook-subnav-link:hover,
+  .bizbook-subnav-active {
+    color: #fff;
+    background: rgb(255 255 255 / 10%);
+  }
+
+  .bizbook-subnav-active {
+    box-shadow: inset 2px 0 #c4b5fd;
+  }
+
+  .bizbook-sidebar-footer {
+    border-top: 1px solid rgb(255 255 255 / 9%);
+  }
+
+  .bizbook-sidebar-promo {
+    border: 1px solid rgb(221 214 254 / 15%);
+    background: linear-gradient(135deg, rgb(255 255 255 / 10%), rgb(255 255 255 / 4%));
+  }
+
+  .bizbook-signout,
+  .bizbook-sidebar-close {
+    color: rgb(237 233 254 / 78%);
+  }
+
+  .bizbook-signout:hover,
+  .bizbook-sidebar-close:hover {
+    color: #fff;
+    background: rgb(255 255 255 / 9%);
+  }
+
+  .bizbook-topbar {
+    border-bottom: 1px solid var(--bb-border);
+    background: var(--bb-surface);
+    color: var(--bb-ink);
+    box-shadow: 0 8px 24px -22px rgb(15 23 42 / 48%);
+  }
+
+  .bizbook-topbar-eyebrow {
+    color: #7c3aed;
+  }
+
+  .bizbook-scope-card {
+    border: 1px solid rgb(255 255 255 / 12%);
+    background: #191a1f;
+    box-shadow: 0 8px 20px -16px rgb(0 0 0 / 72%);
+  }
+
+  .bizbook-scope-mark {
+    border: 1px solid rgb(255 255 255 / 12%);
+    background: #5b21b6;
+    box-shadow: none;
+  }
+
+  .bizbook-mobile-menu {
+    color: #5b21b6;
+    border: 1px solid #e7def8;
+    background: rgb(255 255 255 / 95%);
+    box-shadow: 0 8px 24px -14px rgb(47 22 82 / 40%);
+    backdrop-filter: blur(12px);
+  }
+
+  .bizbook-mobile-menu:hover {
+    background: #f5f0ff;
+  }
+
+  [data-slot="card"] {
+    border: 1px solid var(--bb-border);
+    border-radius: 1rem;
+    background-color: var(--bb-surface);
+    box-shadow: var(--bb-shadow-card);
+  }
+
+  [data-slot="table-container"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+
+[data-slot="button"] {
+  font-weight: 600;
+}
+
+::selection {
+  color: #35165f;
+  background: #ddd6fe;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  scroll-margin-block: 1rem;
+}
+
+@media (max-width: 640px) {
+  .bizbook-sidebar {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .bizbook-workspace-shell {
+    width: 100%;
+  }
+
+  .bizbook-application main :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea) {
+    min-height: 2.75rem;
+    font-size: max(1rem, 1em);
+  }
+
+  .bizbook-application main :is(section[role="dialog"], div[role="dialog"]) {
+    max-height: calc(100dvh - 1rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bizbook-sidebar,
+  .bizbook-mobile-menu {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button,
+  [data-slot="card"] {
+    transition-duration: 180ms;
+  }
+}
+
+.bizbook-subscription-blurred {
+  filter: blur(7px) saturate(0.82);
+  opacity: 0.56;
+  pointer-events: none;
+  user-select: none;
+  transition: filter 300ms ease, opacity 300ms ease;
+}
+
+.bizbook-subscription-gate {
+  background: rgb(238 242 255 / 62%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.bizbook-subscription-gate-card {
+  animation: bizbook-subscription-rise 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.bizbook-subscription-gate-glow {
+  animation: bizbook-subscription-glow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes bizbook-subscription-rise {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes bizbook-subscription-glow {
+  from { opacity: 0.55; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bizbook-subscription-blurred,
+  .bizbook-subscription-gate-card,
+  .bizbook-subscription-gate-glow {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Account settings use a focused dark workspace while the shared app chrome stays light. */
+.bizbook-account-settings main {
+  min-height: calc(100svh - 4.25rem);
+  color: #e5e7eb;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgb(37 99 235 / 13%), transparent 32rem),
+    radial-gradient(ellipse at 94% 12%, rgb(124 58 237 / 12%), transparent 30rem),
+    linear-gradient(180deg, #0b0d12 0%, #10131a 55%, #0d1016 100%) !important;
+}
+
+.bizbook-account-settings main > div > header {
+  border: 1px solid #2b313d;
+  border-radius: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, #191d27 0%, #12151d 100%) !important;
+  box-shadow: 0 18px 48px -38px rgb(0 0 0 / 80%);
+}
+
+.bizbook-account-settings main :is(h1, h2, h3, h4),
+.bizbook-account-settings main [class~="text-slate-950"],
+.bizbook-account-settings main [class~="text-slate-900"],
+.bizbook-account-settings main [class~="text-slate-800"] {
+  color: #f8fafc !important;
+}
+
+.bizbook-account-settings main [class~="text-slate-700"],
+.bizbook-account-settings main [class~="text-slate-600"] {
+  color: #cbd5e1 !important;
+}
+
+.bizbook-account-settings main [class~="text-slate-500"],
+.bizbook-account-settings main [class~="text-slate-400"] {
+  color: #94a3b8 !important;
+}
+
+.bizbook-account-settings main :not(button):not(a):not(input):not(select):not(textarea):is([class~="bg-white"], [class~="bg-white/95"], [class~="bg-white/90"]),
+.bizbook-account-settings main [class*="bg-slate-50"],
+.bizbook-account-settings main [class*="bg-slate-100"] {
+  border-color: #2b313d !important;
+  background-color: #151922 !important;
+}
+
+.bizbook-account-settings main [class*="bg-rose-50"],
+.bizbook-account-settings main [class*="bg-red-50"] {
+  border-color: #5a2933 !important;
+  background-color: #28181f !important;
+}
+
+.bizbook-account-settings main [class*="bg-amber-50"],
+.bizbook-account-settings main [class*="bg-yellow-50"] {
+  border-color: #5a4524 !important;
+  background-color: #282217 !important;
+}
+
+.bizbook-account-settings main [class*="bg-emerald-50"],
+.bizbook-account-settings main [class*="bg-green-50"] {
+  border-color: #245044 !important;
+  background-color: #14251f !important;
+}
+
+.bizbook-account-settings main [class*="bg-blue-50"],
+.bizbook-account-settings main [class*="bg-violet-50"],
+.bizbook-account-settings main [class*="bg-cyan-50"],
+.bizbook-account-settings main [class*="bg-indigo-50"],
+.bizbook-account-settings main [class*="bg-purple-50"],
+.bizbook-account-settings main [class*="bg-fuchsia-50"] {
+  border-color: #293d5a !important;
+  background-color: #17202e !important;
+}
+
+.bizbook-account-settings main [class*="text-rose-"],
+.bizbook-account-settings main [class*="text-red-"] { color: #fda4af !important; }
+.bizbook-account-settings main [class*="text-amber-"],
+.bizbook-account-settings main [class*="text-yellow-"] { color: #fde68a !important; }
+.bizbook-account-settings main [class*="text-emerald-"],
+.bizbook-account-settings main [class*="text-green-"] { color: #6ee7b7 !important; }
+.bizbook-account-settings main [class*="text-violet-"],
+.bizbook-account-settings main [class*="text-purple-"],
+.bizbook-account-settings main [class*="text-[#5B21B6]"] { color: #c4b5fd !important; }
+
+.bizbook-account-settings main :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea) {
+  border-color: #343b48 !important;
+  color: #f8fafc !important;
+  background-color: #0f1218 !important;
+  color-scheme: dark;
+}
+
+.bizbook-account-settings main :is(input, select, textarea)::placeholder {
+  color: #7f8a9c !important;
+}
+
+.bizbook-account-settings main :is(table, thead, tbody, tr, th, td, [class*="divide-"] > :not([hidden]) ~ :not([hidden])) {
+  border-color: #2b313d !important;
+}
+
+.bizbook-account-settings main [class*="shadow-"] {
+  --tw-shadow-color: rgb(0 0 0 / 28%);
+}
+
+.bizbook-workspace-shell.bizbook-workspace-shell--subscription,
+.bizbook-workspace-shell main.bizbook-subscription-page {
+  color: #172033;
+  background: #fff !important;
+}
+
+.bizbook-subscription-page .bizbook-plan-card {
+  background: linear-gradient(145deg, #153728 0%, #1d422f 56%, #27513a 100%);
+}
+
+.bizbook-login-artwork {
+  background:
+    radial-gradient(ellipse at 18% 16%, rgb(250 232 255 / 52%), transparent 38%),
+    radial-gradient(ellipse at 86% 82%, rgb(199 210 254 / 36%), transparent 40%),
+    linear-gradient(145deg, #8b5cf6 0%, #7c3aed 48%, #5b21b6 100%);
+}
